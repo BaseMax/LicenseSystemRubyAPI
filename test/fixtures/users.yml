@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip: MyString
+  key_user: MyString
+  key_ip: MyString
+  key_license: MyString
+  datetime: 1
+  datetime_expire: 1
+  use_first: 1
+  use_last: 1
+  is_active: false
+
+two:
+  ip: MyString
+  key_user: MyString
+  key_ip: MyString
+  key_license: MyString
+  datetime: 1
+  datetime_expire: 1
+  use_first: 1
+  use_last: 1
+  is_active: false
