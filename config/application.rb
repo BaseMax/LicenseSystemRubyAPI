@@ -19,13 +19,6 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
-
-DB_USERNAME = ENV['DB_USERNAME']
-DB_PASSWORD = ENV['DB_PASSWORD']
-DB_PORT = ENV['DB_PORT']
-DB_HOST = ENV['DB_HOST']
-
 module RubySoftwareAPI
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
