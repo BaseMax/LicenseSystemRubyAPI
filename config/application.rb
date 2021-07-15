@@ -43,5 +43,10 @@ module RubySoftwareAPI
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Bundler.require(*Rails.groups)
+      if ['development', 'test'].include? ENV['RAILS_ENV']
+        Dotenv::Railtie.load
+      end
   end
 end
