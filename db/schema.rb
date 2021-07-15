@@ -12,26 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_07_14_123219) do
 
-  create_table "serial", id: { type: :integer, unsigned: true }, charset: "utf8", force: :cascade do |t|
-    t.string "ip", limit: 60, null: false
-    t.string "key_customer", limit: 40, null: false
-    t.string "key_ip", limit: 40, null: false
-    t.string "key_license", limit: 40, null: false
-    t.integer "datetime", null: false, unsigned: true
-    t.integer "datetime_expire", null: false, unsigned: true
-    t.integer "use_first", unsigned: true
-    t.integer "use_last", unsigned: true
-    t.integer "status", default: 0, null: false, comment: "0=active, 1=blocked", unsigned: true
-    t.index ["datetime"], name: "datetime"
-    t.index ["datetime_expire"], name: "datetime_expire"
-    t.index ["ip"], name: "ip"
-    t.index ["key_customer"], name: "key_customer"
-    t.index ["key_ip"], name: "key_ip"
-    t.index ["key_license"], name: "key_license"
-    t.index ["status"], name: "status"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "ip"
     t.string "key_user"
     t.string "key_ip"
