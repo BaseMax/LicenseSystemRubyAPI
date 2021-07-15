@@ -13,11 +13,6 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # username: <%= DB_USERNAME %>
-  # password: <%= DB_PASSWORD %>
-  # port: <%= DB_PORT %>
-  # host: <%= DB_HOST %>
-  # socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
