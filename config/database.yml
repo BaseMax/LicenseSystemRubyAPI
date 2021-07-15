@@ -52,6 +52,4 @@ test:
 #
 production:
   <<: *default
-  database: RubySoftwareAPI_production
-  username: RubySoftwareAPI
   password: <%= ENV['RUBYSOFTWAREAPI_DATABASE_PASSWORD'] %>
