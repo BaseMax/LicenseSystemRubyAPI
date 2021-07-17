@@ -4,15 +4,30 @@ on:
   push:
     branches:
       - main
-
 jobs:
-  build:
+  custom-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - name: Check out repository
+        uses: actions/checkout@v2
         with:
-          dontuseforce: true
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "basemaxrubytest"
-          heroku_email: "miprio101@gmail.com"
+          fetch-depth: 0
+      - name: Heroku login credentials
+        run: |
+          cat > ~/.netrc <<EOF
+            machine api.heroku.com
+              login miprio101@gmail.com
+              password ${{secrets.HEROKU_API_KEY}}
+            machine git.heroku.com
+              login miprio101@gmail.com
+              password ${{secrets.HEROKU_API_KEY}}
+          EOF
+        env:
+          HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+          HEROKU_EMAIL: miprio101@gmail.com
+      - name: Add Heroku remote
+        run: heroku git:remote --app basemaxrubytest
+        env:
+          HEROKU_APP_NAME: basemaxrubytest
+      - name: Push to Heroku
+        run: git push heroku main
