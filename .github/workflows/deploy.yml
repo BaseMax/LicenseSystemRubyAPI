@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
+          dontuseforce: true
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "basemaxrubytest" #Must be unique in Heroku
-          heroku_email: "maxbasecode@gmail.com"
-      - run: heroku auth:whoami
+          heroku_app_name: "basemaxrubytest"
+          heroku_email: "miprio101@gmail.com"
