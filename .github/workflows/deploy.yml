@@ -13,4 +13,4 @@ jobs:
       - name: Deploy 
         env: 
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-        run: git push heroku main -a basemaxrubytest
+        run: git push heroku main
